@@ -207,7 +207,7 @@ public enum Key: Equatable {
 }
 
 
-public typealias AttrSize = UInt16
+public typealias AttrSize = UInt32
 /// Attributes, it is possible to use multiple attributes by combining them
 /// using bitwise OR ('|'). Although, colors cannot be combined. But you can
 /// combine attributes and a single color. See also `Cell`'s `foreground` and

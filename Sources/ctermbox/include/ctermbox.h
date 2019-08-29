@@ -1,2 +1,2 @@
-#undef WITHOUT_TRUECOLOR
+#define WITH_TRUECOLOR
 #include "../termbox.h"
