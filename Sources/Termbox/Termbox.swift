@@ -306,6 +306,28 @@ public enum Event {
     }
 }
 
+extension Event: CustomDebugStringConvertible {
+
+    public var debugDescription: String {
+        switch self {
+        case let .key(modifier, value):
+            return #"Event: key \#(value)\#(modifier == .none ? "" : " " + String(describing: modifier))"#
+        case let .character(modifier, value):
+            return #"Event: character \#(value)\#(modifier == .none ? "" : " " + String(describing: modifier))"#
+        case let .resize(width, height):
+            return "Event: resize \(width) x \(height)"
+        case let .mouse(x, y, event):
+            return "Event: mouse \(String(describing: event)) x: \(x) y: \(y)"
+        case let .other(type):
+            return "Event: termbox event \(type)"
+        case .timeout:
+            return "Event: timeout"
+        }
+    }
+}
+
+extension Event: Equatable {}
+
 /// Errors from initialization. All of them are self-explanatory, except
 /// the pipe trap error. Termbox uses unix pipes in order to deliver a message
 /// from a signal handler (SIGWINCH) to the main event reading loop.
