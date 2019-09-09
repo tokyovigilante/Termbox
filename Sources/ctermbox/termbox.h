@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+#define WITH_TRUECOLOR
 #ifdef WITH_TRUECOLOR
 
 typedef uint32_t tb_color;
